@@ -1,2 +1,3 @@
 require "spec"
-require "../problems/id_1"
+require "../problems/**"
+require "../lib/**"
