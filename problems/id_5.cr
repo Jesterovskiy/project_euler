@@ -7,13 +7,15 @@ class Id5(T)
 
   def calculate
     @result = Int32.new(0)
+    number1 = @last_number
 
-    (@last_number..Int64::MAX).each do |number1|
+    loop do
       (@first_number..@last_number).reverse_each do |number2|
-        break unless number1 % number2 == 0
+        break if number1 % number2 != 0
         @result = number1 if number2 == @first_number
       end
-      break unless @result == 0
+      number1 += 1
+      break if @result != 0
     end
 
     @result
